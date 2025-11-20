@@ -7,8 +7,15 @@ class Initial(Operator):
     """Redact the string - empty value."""
 
     def operate(self, text: str = None, params: Dict = None) -> str:
-        """:return: an empty value."""
-        return ""
+        """:return text with not white space."""
+        words = text.strip().split()
+        initials = [w[0].upper() + "." for w in words if w]
+
+        return " ".join(initials)
+
+
+
+
 
     def validate(self, params: Dict = None) -> None:
         """Initial does not require any parameters so no validation is needed."""
