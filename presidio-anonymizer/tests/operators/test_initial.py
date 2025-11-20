@@ -10,7 +10,8 @@ def test_correct_name():
     "input_text, initials",
     [
         ("John Smith", "J. S."),
-        ("     Eastern    Michigan   University", "E. M. U.")
+        ("     Eastern    Michigan   University", "E. M. U."),
+        ("--**ABC", "--**A")
     ],
 )
 def test_given_value_for_initial(input_text, initials):
