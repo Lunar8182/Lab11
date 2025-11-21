@@ -8,22 +8,24 @@
 > Put your answer to section 3 here:
 
 * A written description of the call stack leading to line 133 in operators_factory.py
-```
-From the <module> sample.py (line 35), 
-to the main method in sample.py (line 29), 
-to the run_anonymizer method in the sample.py (line 13)
-to the anonymize method in AnonymizerEngine Class (line 104)
-[complete the call stack here]
-```
+<module> line 35
+main line 28
+run_anonymizer line 13
+anonymize line 104
+_operate line 54
+__operate_on_text line 86
+create_operator_class line 133
 
 * How many if/elif branches are used in selecting the operator?
-*Put your answer here*
+1
 
 * What data structure (a Python data type) exactly is used to select the operator?
-*Put your answer here*
+
+It uses a dictionary to map strings to classes.
 
 * Explain how "Strategy" design pattern is reflected here.
 
+A family of operators is defined and each one is encapsulated, making them interchangable. Each operator inherits the operator interface and at run time the algorithm can easily find the operator name and swap out the strategy without changing code.
 
 ---
 
