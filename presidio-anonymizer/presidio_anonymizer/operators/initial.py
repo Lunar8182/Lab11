@@ -7,13 +7,30 @@ class Initial(Operator):
     """Redact the string - empty value."""
 
     def operate(self, text: str = None, params: Dict = None) -> str:
-        """:return text with not white space."""
+        """:return text with not white space and no trailing letters."""
         words = text.strip().split()
-        initials = [w[0].upper() + "." for w in words if w]
+        newWord = []
 
-        return " ".join(initials)
+        for w in words:
+            prefix = ""
+            initial_char = None
 
+            for ch in w:
+                if ch.isalnum():
+                    initial_char = ch.upper()
+                    break
+                else:
+                    prefix += ch
 
+            if initial_char:
+                if prefix:  
+                    newWord.append(f"{prefix}{initial_char}")
+                else:       
+                    newWord.append(f"{initial_char}.")
+            else:
+                newWord.append(w)
+
+        return " ".join(newWord)
 
 
 
